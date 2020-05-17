@@ -7,4 +7,6 @@
 A basic implementation of the [RDFJS Data Model](http://rdf.js.org/).
 See [the specification](http://rdf.js.org/) for further details.
 
-ES Modules fork of [@rdfjs/data-model](https://npm.im/@rdfjs/data-model)
+## Fork alert :exclamation:
+
+This package is an ES Modules fork of [@rdfjs/data-model](https://npm.im/@rdfjs/data-model)
