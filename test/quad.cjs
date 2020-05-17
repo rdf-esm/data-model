@@ -4,7 +4,7 @@ const { describe, it } = require('mocha')
 function runTests (DataFactory) {
   describe('.quad', function () {
     it('should be a static method', function () {
-      assert.equal(typeof DataFactory.quad, 'function')
+      assert.strictEqual(typeof DataFactory.quad, 'function')
     })
 
     it('should create an object with .subject, .predicate, .object and .graph with the given values', function () {
@@ -14,10 +14,10 @@ function runTests (DataFactory) {
       var graph = DataFactory.namedNode('http://example.org/graph')
       var quad = DataFactory.quad(subject, predicate, object, graph)
 
-      assert.equal(subject.equals(quad.subject), true)
-      assert.equal(predicate.equals(quad.predicate), true)
-      assert.equal(object.equals(quad.object), true)
-      assert.equal(graph.equals(quad.graph), true)
+      assert.strictEqual(subject.equals(quad.subject), true)
+      assert.strictEqual(predicate.equals(quad.predicate), true)
+      assert.strictEqual(object.equals(quad.object), true)
+      assert.strictEqual(graph.equals(quad.graph), true)
     })
 
     it('should create an object .graph set to DefaultGraph if the argument isn\'t given', function () {
@@ -27,7 +27,7 @@ function runTests (DataFactory) {
       var graph = DataFactory.defaultGraph()
       var quad = DataFactory.quad(subject, predicate, object)
 
-      assert.equal(quad.graph.equals(graph), true)
+      assert.strictEqual(quad.graph.equals(graph), true)
     })
 
     describe('.equals', function () {
@@ -39,7 +39,7 @@ function runTests (DataFactory) {
         var quad1 = DataFactory.quad(subject, predicate, object, graph)
         var quad2 = DataFactory.quad(subject, predicate, object, graph)
 
-        assert.equal(quad1.equals(quad2), true)
+        assert.strictEqual(quad1.equals(quad2), true)
       })
 
       it('should return false if the subject of the other quad is not the same', function () {
@@ -51,7 +51,7 @@ function runTests (DataFactory) {
         var quad1 = DataFactory.quad(subject1, predicate, object, graph)
         var quad2 = DataFactory.quad(subject2, predicate, object, graph)
 
-        assert.equal(quad1.equals(quad2), false)
+        assert.strictEqual(quad1.equals(quad2), false)
       })
 
       it('should return false if the predicate of the other quad is not the same', function () {
@@ -63,7 +63,7 @@ function runTests (DataFactory) {
         var quad1 = DataFactory.quad(subject, predicate1, object, graph)
         var quad2 = DataFactory.quad(subject, predicate2, object, graph)
 
-        assert.equal(quad1.equals(quad2), false)
+        assert.strictEqual(quad1.equals(quad2), false)
       })
 
       it('should return false if the object of the other quad is not the same', function () {
@@ -75,7 +75,7 @@ function runTests (DataFactory) {
         var quad1 = DataFactory.quad(subject, predicate, object1, graph)
         var quad2 = DataFactory.quad(subject, predicate, object2, graph)
 
-        assert.equal(quad1.equals(quad2), false)
+        assert.strictEqual(quad1.equals(quad2), false)
       })
 
       it('should return false if the graph of the other quad is not the same', function () {
@@ -87,7 +87,7 @@ function runTests (DataFactory) {
         var quad1 = DataFactory.quad(subject, predicate, object, graph1)
         var quad2 = DataFactory.quad(subject, predicate, object, graph2)
 
-        assert.equal(quad1.equals(quad2), false)
+        assert.strictEqual(quad1.equals(quad2), false)
       })
 
       it('should return false if value is falsy', function () {
@@ -97,7 +97,7 @@ function runTests (DataFactory) {
         var graph = DataFactory.namedNode('http://example.org/graph')
         var quad = DataFactory.quad(subject, predicate, object, graph)
 
-        assert.equal(quad.equals(null), false)
+        assert.strictEqual(quad.equals(null), false)
       })
     })
   })
