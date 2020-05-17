@@ -1,8 +1,5 @@
-'use strict'
-
-/* global describe, it */
-
-var assert = require('assert')
+const assert = require('assert')
+const { describe, it } = require('mocha')
 
 function runTests (DataFactory) {
   describe('.triple', function () {

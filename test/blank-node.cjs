@@ -1,8 +1,5 @@
-'use strict'
-
-/* global describe, it */
-
-var assert = require('assert')
+const assert = require('assert')
+const { describe, it } = require('mocha')
 
 function runTests (DataFactory) {
   describe('.blankNode', function () {
@@ -40,7 +37,7 @@ function runTests (DataFactory) {
       it('should return true if termType and value are equal', function () {
         var id = 'b1'
         var term = DataFactory.blankNode(id)
-        var mock = {termType: 'BlankNode', value: id}
+        var mock = { termType: 'BlankNode', value: id }
 
         assert.equal(term.equals(mock), true)
       })
@@ -48,7 +45,7 @@ function runTests (DataFactory) {
       it('should return false if termType is not equal', function () {
         var id = 'b1'
         var term = DataFactory.blankNode(id)
-        var mock = {termType: 'NamedNode', value: id}
+        var mock = { termType: 'NamedNode', value: id }
 
         assert.equal(term.equals(mock), false)
       })
@@ -56,7 +53,7 @@ function runTests (DataFactory) {
       it('should return false if value is not equal', function () {
         var id = 'b1'
         var term = DataFactory.blankNode(id)
-        var mock = {termType: 'BlankNode', value: id + '1'}
+        var mock = { termType: 'BlankNode', value: id + '1' }
 
         assert.equal(term.equals(mock), false)
       })

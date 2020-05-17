@@ -1,8 +1,5 @@
-'use strict'
-
-/* global describe, it */
-
-var assert = require('assert')
+const assert = require('assert')
+const { describe, it } = require('mocha')
 
 function runTests (DataFactory) {
   describe('.defaultGraph', function () {
@@ -31,14 +28,14 @@ function runTests (DataFactory) {
 
       it('should return true if termType and value are equal', function () {
         var term = DataFactory.defaultGraph()
-        var mock = {termType: 'DefaultGraph', value: ''}
+        var mock = { termType: 'DefaultGraph', value: '' }
 
         assert.equal(term.equals(mock), true)
       })
 
       it('should return false if termType is not equal', function () {
         var term = DataFactory.defaultGraph()
-        var mock = {termType: 'NamedNode', value: ''}
+        var mock = { termType: 'NamedNode', value: '' }
 
         assert.equal(term.equals(mock), false)
       })

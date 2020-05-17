@@ -1,8 +1,5 @@
-'use strict'
-
-/* global describe, it */
-
-var assert = require('assert')
+const assert = require('assert')
+const { describe, it } = require('mocha')
 
 function runTests (DataFactory) {
   // support for Variable is optional
@@ -39,7 +36,7 @@ function runTests (DataFactory) {
       it('should return true if termType and value are equal', function () {
         var name = 'v'
         var term = DataFactory.variable(name)
-        var mock = {termType: 'Variable', value: name}
+        var mock = { termType: 'Variable', value: name }
 
         assert.equal(term.equals(mock), true)
       })
@@ -47,7 +44,7 @@ function runTests (DataFactory) {
       it('should return false if termType is not equal', function () {
         var name = 'v'
         var term = DataFactory.variable(name)
-        var mock = {termType: 'NamedNode', value: name}
+        var mock = { termType: 'NamedNode', value: name }
 
         assert.equal(term.equals(mock), false)
       })
@@ -55,7 +52,7 @@ function runTests (DataFactory) {
       it('should return false if value is not equal', function () {
         var name = 'v'
         var term = DataFactory.variable(name)
-        var mock = {termType: 'Variable', value: name + '1'}
+        var mock = { termType: 'Variable', value: name + '1' }
 
         assert.equal(term.equals(mock), false)
       })

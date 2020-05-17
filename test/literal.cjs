@@ -1,8 +1,5 @@
-'use strict'
-
-/* global describe, it */
-
-var assert = require('assert')
+const assert = require('assert')
+const { describe, it } = require('mocha')
 
 function runTests (DataFactory) {
   describe('.literal', function () {
@@ -67,7 +64,7 @@ function runTests (DataFactory) {
 
     it('should create an object with a datatype property that contains the given NamedNode', function () {
       var string = 'example'
-      var datatype = {termType: 'NamedNode', value: 'http://example.org'}
+      var datatype = { termType: 'NamedNode', value: 'http://example.org' }
       var term = DataFactory.literal(string, datatype)
 
       assert.equal(term.datatype.termType, 'NamedNode')
