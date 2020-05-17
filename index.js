@@ -1,3 +1,1 @@
-var DataFactory = require('./lib/data-factory')
-
-module.exports = DataFactory
+export * from './lib/data-factory.js'
