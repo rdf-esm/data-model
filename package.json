@@ -27,10 +27,8 @@
     "url": "https://github.com/rdf-esm/data-model/issues"
   },
   "homepage": "https://github.com/rdf-esm/data-model",
-  "dependencies": {
-    "@types/rdf-js": "^2.0.1"
-  },
   "devDependencies": {
+    "@types/rdf-js": "^3",
     "c8": "^7.1.2",
     "mocha": "^7.1.2",
     "standard": "^14.3.4"
