@@ -1,6 +1,6 @@
 {
   "name": "@rdf-esm/data-model",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A basic implementation of the RDFJS Data Model",
   "main": "index.js",
   "type": "module",
