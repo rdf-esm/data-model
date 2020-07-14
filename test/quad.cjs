@@ -30,6 +30,47 @@ function runTests (DataFactory) {
       assert.strictEqual(quad.graph.equals(graph), true)
     })
 
+    it('should wrap "plain RDF" quad subject a RDF* quad', function() {
+      const plainQuad = {
+        subject: DataFactory.namedNode('http://example.org/subject'),
+        predicate: DataFactory.namedNode('http://example.org/predicate'),
+        object: DataFactory.namedNode('http://example.org/object')
+      }
+      var predicate = DataFactory.namedNode('http://example.org/label')
+      var object = DataFactory.literal('reified like a boss')
+
+      const quad = DataFactory.quad(plainQuad, predicate, object)
+
+      assert.deepStrictEqual(quad.subject, DataFactory.quad(
+        DataFactory.namedNode('http://example.org/subject'),
+        DataFactory.namedNode('http://example.org/predicate'),
+        DataFactory.namedNode('http://example.org/object')))
+      assert.strictEqual(quad.termType, 'Quad')
+    })
+
+    it('should deeply wrap "plain RDF" quad subject a RDF* quad', function() {
+      const nestedQuad = {
+        subject: DataFactory.namedNode('http://example.org/nested-subject'),
+        predicate: DataFactory.namedNode('http://example.org/nested-predicate'),
+        object: DataFactory.namedNode('http://example.org/nested-object')
+      }
+      const plainQuad = {
+        subject: nestedQuad,
+        predicate: DataFactory.namedNode('http://example.org/predicate'),
+        object: DataFactory.namedNode('http://example.org/object')
+      }
+      var predicate = DataFactory.namedNode('http://example.org/label')
+      var object = DataFactory.literal('reified like a boss')
+
+      const quad = DataFactory.quad(plainQuad, predicate, object)
+
+      assert.deepStrictEqual(quad.subject.subject, DataFactory.quad(
+        DataFactory.namedNode('http://example.org/nested-subject'),
+        DataFactory.namedNode('http://example.org/nested-predicate'),
+        DataFactory.namedNode('http://example.org/nested-object')))
+      assert.strictEqual(quad.termType, 'Quad')
+    })
+
     describe('.equals', function () {
       it('should return true if the other quad contains the same subject, predicate, object and graph', function () {
         var subject = DataFactory.namedNode('http://example.org/subject')
