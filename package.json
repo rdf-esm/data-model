@@ -32,10 +32,10 @@
   },
   "homepage": "https://github.com/rdf-esm/data-model",
   "dependencies": {
-    "@rdfjs/data-model": "^1.1.2"
+    "@rdfjs/data-model": "^1.2"
   },
   "devDependencies": {
-    "@types/rdf-js": "^3",
+    "@types/rdf-js": "^4",
     "c8": "^7.1.2",
     "mocha": "^7.1.2",
     "standard": "^14.3.4"
