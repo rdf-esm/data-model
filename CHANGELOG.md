@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.4](https://github.com/rdf-esm/data-model/compare/v0.5.3...v0.5.4) (2020-11-07)
+
+
+### Bug Fixes
+
+* update to rdf-js v4 ([96f4ba0](https://github.com/rdf-esm/data-model/commit/96f4ba084be403c4cff96bb8acef3b31928ceb45))
+
 ### [0.5.3](https://github.com/rdf-esm/data-model/compare/v0.5.2...v0.5.3) (2020-07-14)
 
 
